@@ -8,6 +8,29 @@ export const metadata: Metadata = {
   title: "Scream 409 | Tributo a Bullet For My Valentine",
   description: "Scream 409 - Tributo oficial a Bullet For My Valentine. Metalcore de Argentina.",
   keywords: ["metalcore", "tributo", "Bullet For My Valentine", "Argentina", "rock", "metal"],
+  authors: [{ name: "Scream 409" }],
+  openGraph: {
+    title: "Scream 409 | Tributo a Bullet For My Valentine",
+    description: "Scream 409 - Tributo oficial a Bullet For My Valentine. Metalcore de Argentina.",
+    url: "https://scream409.netlify.app/",
+    siteName: "Scream 409",
+    locale: "es_AR",
+    type: "website",
+    images: [
+      {
+        url: "https://scream409.netlify.app/images/logo.png",
+        width: 400,
+        height: 400,
+        alt: "Scream 409 Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Scream 409 | Tributo a Bullet For My Valentine",
+    description: "Scream 409 - Tributo oficial a Bullet For My Valentine. Metalcore de Argentina.",
+    images: ["https://scream409.netlify.app/images/logo.png"],
+  },
 };
 
 export default function RootLayout({
