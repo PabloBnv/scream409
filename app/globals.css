@@ -1,12 +1,25 @@
 @import "tailwindcss";
 
+/* Font utility classes */
+.font-heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+}
+
+.font-subheading {
+  font-family: 'Oswald', sans-serif;
+}
+
 :root {
   --background: #0a0a0a;
   --foreground: #f5f5f5;
   --accent: #e63946;
   --accent-hover: #ff4d5a;
+  --accent-glow: rgba(230, 57, 70, 0.6);
   --muted: #1a1a1a;
   --muted-foreground: #a0a0a0;
+  --font-heading: 'Bebas Neue', sans-serif;
+  --font-subheading: 'Oswald', sans-serif;
 }
 
 @theme inline {
@@ -14,22 +27,341 @@
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
+  --color-accent-glow: var(--accent-glow);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Oswald', sans-serif;
+  overflow-x: hidden;
 }
 
+/* Metal Texture Background */
+.metal-texture {
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(30, 30, 30, 0.5) 0%, transparent 70%),
+    linear-gradient(180deg, #0a0a0a 0%, #111111 50%, #0a0a0a 100%);
+}
+
+.dark-texture {
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-blend-mode: overlay;
+}
+
+/* Text Glow Effect */
+.text-glow {
+  text-shadow:
+    0 0 10px var(--accent-glow),
+    0 0 20px var(--accent-glow),
+    0 0 40px var(--accent-glow),
+    0 0 80px var(--accent);
+}
+
+.text-glow-subtle {
+  text-shadow:
+    0 0 5px var(--accent-glow),
+    0 0 10px var(--accent-glow);
+}
+
+/* Metal Button Styles */
+.btn-metal {
+  position: relative;
+  background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+  border: 2px solid var(--accent);
+  color: var(--foreground);
+  font-family: var(--font-heading);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  transition: all 0.3s ease;
+}
+
+.btn-metal:hover {
+  background: linear-gradient(180deg, var(--accent) 0%, #b32d38 100%);
+  box-shadow:
+    0 0 20px var(--accent-glow),
+    inset 0 0 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-metal:active {
+  transform: translateY(0);
+}
+
+/* CTA Button - More Aggressive */
+.btn-cta {
+  position: relative;
+  background: var(--accent);
+  color: var(--background);
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 1rem 3rem;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 16px) 0,
+    100% 16px,
+    100% 100%,
+    16px 100%,
+    0 calc(100% - 16px)
+  );
+  transition: all 0.2s ease;
+}
+
+.btn-cta:hover {
+  background: var(--accent-hover);
+  box-shadow:
+    0 0 30px var(--accent-glow),
+    0 0 60px var(--accent-glow);
+  transform: scale(1.02);
+}
+
+/* Card Style - Sharp Edges */
+.card-metal {
+  background: linear-gradient(135deg, #151515 0%, #0a0a0a 100%);
+  border: 1px solid #2a2a2a;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 8px) 0,
+    100% 8px,
+    100% 100%,
+    8px 100%,
+    0 calc(100% - 8px)
+  );
+  transition: all 0.3s ease;
+}
+
+.card-metal:hover {
+  border-color: var(--accent);
+  box-shadow:
+    0 0 20px rgba(230, 57, 70, 0.2),
+    inset 0 0 30px rgba(230, 57, 70, 0.05);
+}
+
+/* Nav Link with Red Underline */
+.nav-link {
+  position: relative;
+  font-family: var(--font-subheading);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--foreground);
+  padding: 0.5rem 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: var(--accent);
+}
+
+/* Section Title - Metal Style */
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::before,
+.section-title::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 60px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.section-title::before {
+  right: 100%;
+  margin-right: 20px;
+}
+
+.section-title::after {
+  left: 100%;
+  margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+  .section-title::before,
+  .section-title::after {
+    display: none;
+  }
+}
+
+/* Input Styles */
+.input-metal {
+  background: #0a0a0a;
+  border: 2px solid #2a2a2a;
+  color: var(--foreground);
+  font-family: var(--font-subheading);
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.input-metal:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(230, 57, 70, 0.3);
+}
+
+.input-metal::placeholder {
+  color: var(--muted-foreground);
+}
+
+/* Date Box for Shows */
+.date-box {
+  background: linear-gradient(180deg, var(--accent) 0%, #b32d38 100%);
+  color: var(--background);
+  font-family: var(--font-heading);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+}
+
+.date-box .day {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.date-box .month {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Album Card */
+.album-card {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.album-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(230, 57, 70, 0.8) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.album-card:hover::before {
+  opacity: 1;
+}
+
+/* Animated Border */
+.border-glow {
+  position: relative;
+}
+
+.border-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(90deg, var(--accent), transparent, var(--accent));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.border-glow:hover::before {
+  opacity: 1;
+  animation: borderPulse 2s linear infinite;
+}
+
+@keyframes borderPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Logo Animation */
+@keyframes logoPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px var(--accent-glow));
+  }
+  50% {
+    filter: drop-shadow(0 0 30px var(--accent-glow)) drop-shadow(0 0 60px var(--accent));
+  }
+}
+
+.logo-glow {
+  animation: logoPulse 3s ease-in-out infinite;
+}
+
+/* Hero Title Animation */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.8; }
+  94% { opacity: 1; }
+  96% { opacity: 0.9; }
+  97% { opacity: 1; }
+}
+
+.title-flicker {
+  animation: flicker 4s linear infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Link transitions */
 a {
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 a:hover {
   color: var(--accent);
+}
+
+/* Mobile menu */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: var(--background);
+  z-index: 100;
 }
