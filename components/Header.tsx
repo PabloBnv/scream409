@@ -27,7 +27,7 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="relative w-16 h-16 md:w-20 md:h-20">
           <Image
-            src="/images/logo.jpeg"
+            src="/images/logo.png"
             alt="Scream 409"
             fill
             className="object-contain logo-glow"

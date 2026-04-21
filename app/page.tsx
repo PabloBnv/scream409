@@ -26,7 +26,7 @@ export default function Home() {
           {/* Logo - Large */}
           <div className="relative w-48 h-48 md:w-64 md:h-64 mx-auto mb-6">
             <Image
-              src="/images/logo.jpeg"
+              src="/images/logo.png"
               alt="Scream 409"
               fill
               className="object-contain logo-glow"
@@ -90,7 +90,7 @@ export default function Home() {
             {/* Album Cover */}
             <div className="relative w-64 h-64 border-2 border-accent/30">
               <Image
-                src="/images/logo.jpeg"
+                src="/images/logo.png"
                 alt="EP 2024"
                 fill
                 className="object-contain p-4"
