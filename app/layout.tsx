@@ -1,37 +1,7 @@
-import type { Metadata } from "next";
 import "./globals.css";
 import { LocaleProvider } from "@/components/LocaleContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
-export const metadata: Metadata = {
-  title: "Scream 409 | Tributo a Bullet For My Valentine",
-  description: "Scream 409 - Tributo oficial a Bullet For My Valentine. Metalcore de Argentina.",
-  keywords: ["metalcore", "tributo", "Bullet For My Valentine", "Argentina", "rock", "metal"],
-  authors: [{ name: "Scream 409" }],
-  openGraph: {
-    title: "Scream 409 | Tributo a Bullet For My Valentine",
-    description: "Scream 409 - Tributo oficial a Bullet For My Valentine. Metalcore de Argentina.",
-    url: "https://scream409.netlify.app/",
-    siteName: "Scream 409",
-    locale: "es_AR",
-    type: "website",
-    images: [
-      {
-        url: "https://scream409.netlify.app/images/logo.png",
-        width: 400,
-        height: 400,
-        alt: "Scream 409 Logo",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Scream 409 | Tributo a Bullet For My Valentine",
-    description: "Scream 409 - Tributo oficial a Bullet For My Valentine. Metalcore de Argentina.",
-    images: ["https://scream409.netlify.app/images/logo.png"],
-  },
-};
 
 export default function RootLayout({
   children,
@@ -41,6 +11,25 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        <title>Scream 409 | Tributo a Bullet For My Valentine</title>
+        <meta name="description" content="Scream 409 - Tributo oficial a Bullet For My Valentine. Metalcore de Argentina." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {/* Facebook Meta Tags */}
+        <meta property="og:url" content="https://scream409.netlify.app/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Scream 409 | Tributo a Bullet For My Valentine" />
+        <meta property="og:description" content="Scream 409 - Tributo oficial a Bullet For My Valentine. Metalcore de Argentina." />
+        <meta property="og:image" content="https://scream409.netlify.app/images/logo.png" />
+
+        {/* Twitter Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:domain" content="scream409.netlify.app" />
+        <meta name="twitter:url" content="https://scream409.netlify.app/" />
+        <meta name="twitter:title" content="Scream 409 | Tributo a Bullet For My Valentine" />
+        <meta name="twitter:description" content="Scream 409 - Tributo oficial a Bullet For My Valentine. Metalcore de Argentina." />
+        <meta name="twitter:image" content="https://scream409.netlify.app/images/logo.png" />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
