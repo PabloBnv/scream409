@@ -5,8 +5,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Scream 409 | Metalcore",
-  description: "Rock desde las sombras | Rock from the shadows",
+  title: "Scream 409 | Tributo a Bullet For My Valentine",
+  description: "Scream 409 - Tributo oficial a Bullet For My Valentine. Metalcore de Argentina.",
+  keywords: ["metalcore", "tributo", "Bullet For My Valentine", "Argentina", "rock", "metal"],
 };
 
 export default function RootLayout({
