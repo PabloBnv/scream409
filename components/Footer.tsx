@@ -40,7 +40,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://www.youtube.com"
+                href="https://www.youtube.com/watch?v=YIibWW2eWfI"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 flex items-center justify-center border border-foreground/20 hover:border-accent hover:text-accent transition-all"
